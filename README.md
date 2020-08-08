@@ -15,4 +15,17 @@ server_nodeJS
                                             MONGO_URL: 'sampleURL',
                                             и вместо sampleURL вписать её
                                        
-Запуск производить в терминале командой: yarn dev (может потребоваться установка yarn)
+Настройка расширений nodeJS
+  В папке проекта в терминале ввести команды:
+                    (может потребоваться установка yarn)
+                    git init
+                    yarn init -y
+                    yarn add -D eslint eslint-plugin-node
+                    yarn add express
+                    yarn add body-parser
+                    yarn add bcrypt-nodejs
+                    yarn add express-session
+                    yarn add connect-mongo
+                    yarn add mongoose
+                    
+Запуск производить в терминале командой: yarn dev
