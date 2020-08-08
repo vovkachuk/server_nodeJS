@@ -77,7 +77,7 @@ app.get('/signin', (req, res) => {
 app.post('/signin', (req, res) => {
   const {login, psw} = req.body;
   if(!login || !psw ){
-    res.render('reg', {data: 'Пустые поля, введите корректные значения'});
+    res.render('signin', {data: 'Пустые поля, введите корректные значения'});
   } else {
     user.findOne({login}).then(user => { 
       if(!user){
@@ -157,25 +157,24 @@ app.post('/change', (req, res) => {
       user.findOne({login:login}).then(user_nw => {
         const hash = user_nw.psw;
         user.deleteOne({login:login}, function(err){});
-        profile.deleteOne({login:login}, function(err){});
         user.create({login: newLogin, psw: hash }).then(user => 
           {
+            profile.deleteOne({login:login}, function(err){});
             profile.create({login: newLogin, name: name,age: age,country:country,city:city})
-            res.redirect("/logout");
       })
     })  
     }
   })
   if(psw){
-    user.deleteOne({login:login}, function(err){});
+    user.deleteOne({login:newLogin}, function(err){});
     bcrypt.hash(psw, null, null, function(err, hash) {
-      user.create({login: login, psw: hash }).then(user => 
+      user.create({login: newLogin, psw: hash }).then(user => 
         {
-          res.redirect("/logout");
         })
   })
 }
-    }else{
+res.redirect("/logout");    
+}else{
       if(psw){
         user.deleteOne({login:login}, function(){});
         bcrypt.hash(psw, null, null, function(err, hash) {
@@ -192,7 +191,4 @@ app.post('/change', (req, res) => {
     }
   }}}) 
       
-
-
-
   module.exports = app;
