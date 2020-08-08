@@ -15,3 +15,4 @@ server_nodeJS
                                             MONGO_URL: 'sampleURL',
                                             и вместо sampleURL вписать её
                                        
+Запуск производить в терминале командой: yarn dev (может потребоваться установка yarn)
