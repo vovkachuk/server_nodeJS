@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+    </head>
+    
+    <body>
+        <% if(!user.id && !user.login) { %>
+            <p>Авторизуйтесь или зарегистрируйтесь</p>
+            <br>
+            <a href = '/signin'>Авторизация</a>
+            <a href = '/reg'>Регистрация</a>
+        <% } else {%>
+            <p>Привет <%= user.login %></p>  
+            <br>
+            <p>Перейти в <a href="/profile">профиль</a></p>
+           
+            <br>
+            <a href="/logout">Выход</a>
+            <% } %>
+    </body>
+</html>

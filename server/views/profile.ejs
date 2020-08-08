@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Профиль</title>
+    </head>
+
+    <body>
+        <% if(!user.id && !user.login) { %>
+            <p>Авторизуйтесь или зарегистрируйтесь</p>
+            <br>
+            <a href = '/signin'>Авторизация</a>
+            <a href = '/reg'>Регистрация</a>
+        <% } else {%>
+            <p>Логин: <%= profile.login %></p>  
+            <p>Имя: <%= profile.name %></p>
+            <p>Возраст: <%= profile.age %></p>
+            <p>Страна: <%= profile.country %></p>
+            <p>Город: <%= profile.city %></p>
+           
+            <br>
+            <a href="/change">Изменить профиль</a>
+            <br>
+            <a href="/">Главная</a>
+            <% } %>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Профиль</title>
+    </head>
+
+    <body>
+        <% if(!user.id && !user.login) { %>
+            <p>Авторизуйтесь или зарегистрируйтесь</p>
+            <br>
+            <a href = '/signin'>Авторизация</a>
+            <a href = '/reg'>Регистрация</a>
+        <% } else {%>
+            <form method="POST">
+            <p>Логин: <input type="text" name="newLogin" value=<%= user.login %>> </p>
+            <p>Имя: <input type="text" name="name" value=<%= user.name %>> </p>  
+            <p>Возраст: <input type="text" name="age" value = <%= user.age %>> </p>  
+            <p>Страна: <input type="text" name="country" value=<%= user.country %>> </p>  
+            <p>Город: <input type="text" name="city" value=<%= user.city %>> </p>
+            <p>Новый пароль: <input type="password" name="psw"> </p>
+            <%= data %>  
+            <button type="submit">Изменить профиль</button>
+            <br>
+            <p>При смене пароля или логина необходимо перелогинится</p>  
+            </form>
+            <br>
+            <a href="/">Главная</a>
+        
+            <% } %>
+
+    </body>
+</html>
